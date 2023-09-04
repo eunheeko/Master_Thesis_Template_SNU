@@ -1,0 +1,116 @@
+\documentclass[twoside, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{kotex} %for Korean
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{graphicx} 
+\graphicspath{ {images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+
+\fancyhead[LE]{\nouppercase{\thepage\hfill\textit{\leftmark}}}
+\fancyhead[RO]{\nouppercase{\textit{\leftmark}\hfill\thepage}}
+
+\fancyfoot{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\usepackage{twoopt, natbib}
+
+% \usepackage{longtable}
+% \usepackage{threeparttablex}
+% \usepackage[para,online,flushleft]{threeparttable}
+
+\usepackage{chngcntr}
+
+
+\usepackage{amssymb}
+
+\usepackage{siunitx}
+\usepackage{booktabs}
+
+\usepackage{afterpage}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{color}
+\definecolor{cobalt}{rgb}{0.06, 0.2, 0.65}
+\hypersetup{
+  colorlinks,
+  citecolor=cobalt,
+  linkcolor=cobalt,
+  urlcolor=cobalt,
+}
+
+
+\title{Thesis Title}
+\author{Name}
+\date{Date}
+
+\begin{document}
+
+\input{titlepage}
+
+\pagenumbering{roman}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{abstract}
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+
+\chapter{Introduction}\label{chapter:Introduction}
+\pagenumbering{arabic}
+\input{chapters/introduction}
+
+
+\chapter[Chapter 2 alias]{Chapter 2 title}
+\input{chapters/chapter_01}
+
+
+\chapter[Chapter 3 alias]{Chapter 3 title}
+\input{chapters/chapter_02}
+
+
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+
+\appendix
+
+\chapter*{Appendices\markboth{Appendices}{}}
+\addcontentsline{toc}{chapter}{Appendices}  
+\setcounter{section}{0}% Reset numbering for sections
+\renewcommand{\thesection}{\Alph{section}}% Adjust section printing (from here onward)
+
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\input{chapters/appendix_01}
+\input{chapters/appendix_02}
+
+
+\addcontentsline{toc}{chapter}{Bibliography}
+% \bibliographystyle{}
+\bibliography{references}
+
+
+\addcontentsline{toc}{chapter}{요 약}
+\input{abstract_kor}
+
+\addcontentsline{toc}{chapter}{감사의 글}
+\input{acknowledgements}
+
+\end{document}
+
